@@ -11,15 +11,15 @@ class CreditCardLayout extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        elevation: 2,
+        elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
         shadowColor: HexColor.fromHex(CardShadow),
-        color: HexColor.fromHex(DarkBackground),
+        color: HexColor.fromHex(White),
         child: Container(
-          padding: EdgeInsets.all(8),
-          child: Text("randon"),
+          padding: const EdgeInsets.all(16.0),
+          child: CreditCardWidget(),
         ),
       ),
     );
@@ -37,7 +37,74 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              "clear your upcoming bills to earn coins",
+              style: TextStyle(
+                fontSize: 16,
+                color: HexColor.fromHex(TextBlack),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 18,
+          ),
+          Row(
+            children: [
+              SizedBox(
+                width: 10,
+              ),
+              SizedBox(
+                child: Image.asset("assets/images/icici.png"),
+                width: 32,
+                height: 32,
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Column(
+                children: [
+                  Text(
+                    "ICICI Bank",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: HexColor.fromHex(TextBlack),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      "XXXX-1206",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: HexColor.fromHex(Grey),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "₹11,327.6",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: HexColor.fromHex(TextBlack),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:cred/core/AppConstants.dart';
+import 'package:cred/core/Extensions.dart';
 import 'package:cred/pages/widgets/CreditCardWidget.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +27,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: HexColor.fromHex(DarkBackground),
       child: CreditCardLayout(),
     );
   }
