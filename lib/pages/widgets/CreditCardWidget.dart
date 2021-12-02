@@ -55,6 +55,9 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
             height: 18,
           ),
           Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: 10,
@@ -67,72 +70,79 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
               SizedBox(
                 width: 20,
               ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            "ICICI Bank",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: HexColor.fromHex(TextBlack),
-                              fontWeight: FontWeight.bold,
+              Expanded(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "ICICI Bank",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: HexColor.fromHex(TextBlack),
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          Text(
-                            "XXXX-1206",
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: HexColor.fromHex(Grey),
+                            Text(
+                              "XXXX-1206",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: HexColor.fromHex(Grey),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        "₹ 11,327.6",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: HexColor.fromHex(TextBlack),
-                          fontWeight: FontWeight.bold,
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Text(
-                        "DUE IN 3 DAYS",
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: HexColor.fromHex(Maroon),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      NeumorphicButton(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 6.0, horizontal: 10.0),
-                        style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.roundRect(
-                            BorderRadius.circular(50),
-                          ),
-                          depth: 20,
-                          lightSource: LightSource.top,
-                          shadowLightColor: HexColor.fromHex(DarkBackground),
-                        ),
-                        child: Text(
-                          "Pay now",
+                        Text(
+                          "₹ 11,327.6",
                           style: TextStyle(
-                            fontSize: 8,
+                            fontSize: 16,
+                            color: HexColor.fromHex(TextBlack),
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    SizedBox(height: 12),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "DUE IN 3 DAYS",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: HexColor.fromHex(Maroon),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        NeumorphicButton(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 6.0, horizontal: 10.0),
+                          style: NeumorphicStyle(
+                            boxShape: NeumorphicBoxShape.roundRect(
+                              BorderRadius.circular(50),
+                            ),
+                            depth: 20,
+                            lightSource: LightSource.top,
+                            shadowLightColor: HexColor.fromHex(DarkBackground),
+                          ),
+                          child: Text(
+                            "Pay now",
+                            style: TextStyle(
+                              fontSize: 10,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
