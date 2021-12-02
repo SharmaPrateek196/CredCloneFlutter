@@ -76,14 +76,11 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(
-                      "XXXX-1206",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: HexColor.fromHex(Grey),
-                      ),
+                  Text(
+                    "XXXX-1206",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: HexColor.fromHex(Grey),
                     ),
                   ),
                 ],
@@ -92,7 +89,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    "₹11,327.6",
+                    "₹ 11,327.6",
                     style: TextStyle(
                       fontSize: 16,
                       color: HexColor.fromHex(TextBlack),
@@ -103,6 +100,14 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
               ),
             ],
           ),
+          Text(
+            "DUE IN 3 DAYS",
+            style: TextStyle(
+              fontSize: 12,
+              color: HexColor.fromHex(Maroon),
+              fontWeight: FontWeight.bold,
+            ),
+          )
         ],
       ),
     );
