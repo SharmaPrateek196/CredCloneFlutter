@@ -2,21 +2,22 @@ import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class CreditCardLayout extends StatelessWidget {
   const CreditCardLayout({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Neumorphic(
+        style: NeumorphicStyle(
+          depth: 8,
+          lightSource: LightSource.bottom,
+          boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+          color: HexColor.fromHex(White),
         ),
-        shadowColor: HexColor.fromHex(CardShadow),
-        color: HexColor.fromHex(White),
         child: Container(
           padding: const EdgeInsets.all(16.0),
           child: CreditCardWidget(),
@@ -100,12 +101,19 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
               ),
             ],
           ),
-          Text(
-            "DUE IN 3 DAYS",
-            style: TextStyle(
-              fontSize: 12,
-              color: HexColor.fromHex(Maroon),
-              fontWeight: FontWeight.bold,
+          SizedBox(height: 12),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              minWidth: double.infinity,
+            ),
+            child: Text(
+              "DUE IN 3 DAYS",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: 12,
+                color: HexColor.fromHex(Maroon),
+                fontWeight: FontWeight.bold,
+              ),
             ),
           )
         ],
