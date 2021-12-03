@@ -1,8 +1,10 @@
+import 'package:cred/DashboardBinding.dart';
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/pages/widgets/CreditCardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,20 +14,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return NeumorphicApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.dark,
-      theme: NeumorphicThemeData(
-        baseColor: Colors.grey,
-        lightSource: LightSource.topLeft,
-        depth: 10,
+    return GetMaterialApp(
+      title: 'CRED',
+      theme: ThemeData(
+        primarySwatch: darkMaterialBlack,
       ),
-      darkTheme: NeumorphicThemeData(
-        baseColor: HexColor.fromHex(DarkBackground),
-        lightSource: LightSource.topLeft,
-        depth: 10,
-      ),
+      getPages: [
+        GetPage(
+          name: "/dashboard",
+          page: () => MyHomePage(),
+          binding: DashBoardBinding(),
+        ),
+      ],
+      initialRoute: "/dashboard",
       home: MyHomePage(),
     );
   }
@@ -36,9 +37,29 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: HexColor.fromHex(DarkBackground),
-      child: ListView(
+    return Scaffold(
+      backgroundColor: HexColor.fromHex(DarkBackground),
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.alarm),
+      //   onPressed: () {},
+      // ),
+      // floatingActionButtonLocation:
+      //     FloatingActionButtonLocation.miniCenterDocked,
+      // bottomNavigationBar: BottomAppBar(
+      //   shape: CircularNotchedRectangle(),
+      //   notchMargin: 8.0,
+      //   child: Row(
+      //     mainAxisSize: MainAxisSize.max,
+      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //     children: [
+      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
+      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
+      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
+      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
+      //     ],
+      //   ),
+      // ),
+      body: ListView(
         children: [CreditCardLayout(), CreditCardLayout(), CreditCardLayout()],
       ),
     );
