@@ -39,26 +39,25 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),
-      // floatingActionButton: FloatingActionButton(
-      //   child: const Icon(Icons.alarm),
-      //   onPressed: () {},
-      // ),
-      // floatingActionButtonLocation:
-      //     FloatingActionButtonLocation.miniCenterDocked,
-      // bottomNavigationBar: BottomAppBar(
-      //   shape: CircularNotchedRectangle(),
-      //   notchMargin: 8.0,
-      //   child: Row(
-      //     mainAxisSize: MainAxisSize.max,
-      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //     children: [
-      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
-      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
-      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
-      //       IconButton(icon: Icon(Icons.home), onPressed: () {}),
-      //     ],
-      //   ),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.alarm),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(icon: Icon(Icons.home), onPressed: () {}),
+            IconButton(icon: Icon(Icons.home), onPressed: () {}),
+            IconButton(icon: Icon(Icons.home), onPressed: () {}),
+            IconButton(icon: Icon(Icons.home), onPressed: () {}),
+          ],
+        ),
+      ),
       body: ListView(
         children: [CreditCardLayout(), CreditCardLayout(), CreditCardLayout()],
       ),
