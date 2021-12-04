@@ -1,6 +1,7 @@
 import 'package:cred/DashboardBinding.dart';
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
+import 'package:cred/core/RadialGradientMask.dart';
 import 'package:cred/pages/widgets/CreditCardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -51,14 +52,17 @@ class MyHomePage extends StatelessWidget {
               Container(
                 height: 85,
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  color: HexColor.fromHex(ExtraDarkBackground),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    IconButton(icon: Icon(Icons.home), onPressed: () {}),
+                    RadiantGradientMask(
+                      child: IconButton(icon: Icon(Icons.home, color: Colors.white,), onPressed: () {}),
+                      gradient: pinkRadialGradientCenterBottomRight,
+                    ),
                     IconButton(icon: Icon(Icons.home), onPressed: () {}),
                     IconButton(icon: Icon(Icons.home), onPressed: () {}),
                     IconButton(icon: Icon(Icons.home), onPressed: () {}),

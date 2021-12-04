@@ -36,9 +36,9 @@ class BottomBarBorderPainter extends CustomPainter {
     borderPath.lineTo(size.width*0.85, size.height*0.3);
 
     Paint brush = Paint()
-    ..color = HexColor.fromHex(Maroon)
+    ..color = HexColor.fromHex(Pink500)
     ..style = PaintingStyle.stroke
-    ..strokeWidth = 5.0;
+    ..strokeWidth = 2.4;
 
     canvas.drawPath(borderPath, brush);
   }
