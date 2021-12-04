@@ -19,7 +19,7 @@ class CreditCardLayout extends StatelessWidget {
           color: HexColor.fromHex(White),
         ),
         child: Container(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(24.0),
           child: CreditCardWidget(),
         ),
       ),
@@ -45,14 +45,14 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
             child: Text(
               "clear your upcoming bills to earn coins",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 18,
                 color: HexColor.fromHex(TextBlack),
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           SizedBox(
-            height: 18,
+            height: 20,
           ),
           Row(
             mainAxisSize: MainAxisSize.max,
@@ -83,7 +83,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                             Text(
                               "ICICI Bank",
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 18,
                                 color: HexColor.fromHex(TextBlack),
                                 fontWeight: FontWeight.bold,
                               ),
@@ -91,7 +91,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                             Text(
                               "XXXX-1206",
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 16,
                                 color: HexColor.fromHex(Grey),
                               ),
                             ),
@@ -100,7 +100,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                         Text(
                           "₹ 11,327.6",
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
                             color: HexColor.fromHex(TextBlack),
                             fontWeight: FontWeight.bold,
                           ),
@@ -116,14 +116,14 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                           "DUE IN 3 DAYS",
                           textAlign: TextAlign.start,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 16,
                             color: HexColor.fromHex(Maroon),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         NeumorphicButton(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 6.0, horizontal: 10.0),
+                              vertical: 10.0, horizontal: 20.0),
                           style: NeumorphicStyle(
                             boxShape: NeumorphicBoxShape.roundRect(
                               BorderRadius.circular(50),
@@ -135,7 +135,8 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                           child: Text(
                             "Pay now",
                             style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold
                             ),
                           ),
                         )

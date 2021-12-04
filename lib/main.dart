@@ -46,21 +46,33 @@ class MyHomePage extends StatelessWidget {
         color: HexColor.fromHex(DarkBackground),
         child: ClipPath(
           clipper: BottomBarClipper(),
-          child: Container(
-            height: 72,
-            decoration: BoxDecoration(color: Colors.greenAccent),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                IconButton(icon: Icon(Icons.home), onPressed: () {}),
-                IconButton(icon: Icon(Icons.home), onPressed: () {}),
-                IconButton(icon: Icon(Icons.home), onPressed: () {}),
-                IconButton(icon: Icon(Icons.home), onPressed: () {}),
-                IconButton(icon: Icon(Icons.home), onPressed: () {}),
-              ],
-            ),
+          child: Stack(
+            children: [
+              Container(
+                height: 85,
+                decoration: BoxDecoration(
+                  color: Colors.greenAccent,
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    IconButton(icon: Icon(Icons.home), onPressed: () {}),
+                    IconButton(icon: Icon(Icons.home), onPressed: () {}),
+                    IconButton(icon: Icon(Icons.home), onPressed: () {}),
+                    IconButton(icon: Icon(Icons.home), onPressed: () {}),
+                    IconButton(icon: Icon(Icons.home), onPressed: () {}),
+                  ],
+                ),
+              ),
+              CustomPaint(
+                painter: BottomBarBorderPainter(),
+                child: Container(
+                  height: 85,
+                ),
+              )
+            ],
           ),
         ),
       ),
