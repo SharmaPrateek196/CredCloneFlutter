@@ -13,6 +13,8 @@ final String Pink200 = "#e4ac9c";
 final String Pink300 = "#b77256";
 final String Pink400 = "#ad6a4f";
 final String Pink500 = "#97563c";
+final String TextGray = "#8e9091";
+final String ShadowGray = "#3a3e40";
 
 final pinkRadialGradientCenterBottomRight = RadialGradient(
   center: Alignment.bottomRight,

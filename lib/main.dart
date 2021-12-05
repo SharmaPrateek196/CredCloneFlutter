@@ -13,11 +13,9 @@ import 'package:cred/ui/pages/home/HomePage.dart';
 import 'package:cred/ui/pages/home/HomePageBinding.dart';
 import 'package:cred/ui/pages/money/MoneyPage.dart';
 import 'package:cred/ui/pages/money/MoneyPageBinding.dart';
-import 'package:cred/ui/widgets/CreditCardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 
 import 'core/BottomBarClipper.dart';
 
