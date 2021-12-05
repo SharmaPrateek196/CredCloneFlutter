@@ -10,7 +10,7 @@ class CreditCardLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
       child: Neumorphic(
         style: NeumorphicStyle(
           depth: 4.5,

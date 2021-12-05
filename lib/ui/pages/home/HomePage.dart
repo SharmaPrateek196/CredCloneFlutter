@@ -148,13 +148,33 @@ class HomePage extends StatelessWidget {
         child: Scaffold(
           backgroundColor: HexColor.fromHex(DarkBackground),
           appBar: _homeAppBar,
-          body: ListView(
-            children: [
-              CreditCardLayout(),
-              CreditCardLayout(),
-              CreditCardLayout(),
-            ]
-          ),
+          body: Container(
+            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: ListView(
+                      children: [
+                      Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                          SizedBox(height: 20,),
+                          Text(
+                            "hello, Prateek", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                          ),
+                          SizedBox(height: 14,),
+                          Text(
+                            "here are today's", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
+                          ),
+                          SizedBox(height: 8,),
+                          Text(
+                            "recommended actions for you", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
+                          ),
+                        ]
+                      ),
+                        CreditCardLayout(),
+                        CreditCardLayout(),
+                        CreditCardLayout(),
+                      ]
+                  ),
+          )
         )
     );
   }
