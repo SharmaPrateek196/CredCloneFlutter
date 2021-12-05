@@ -98,44 +98,59 @@ class DashboardPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: HexColor.fromHex(ExtraDarkBackground),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      RadiantGradientMask(
-                        child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () {
-                          dashboardController.changeTabIndex(0);
-                        }),
-                        gradient: pinkRadialGradientCenterBottomRight,
-                      ),
-                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
-                        dashboardController.changeTabIndex(1);
-                      }),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 28.0, right: 34.0),
-                        child: IconButton(icon: Icon(Icons.circle, size: 70,), onPressed: () {
-                          dashboardController.changeTabIndex(2);
-                        }),
-                      ),
-                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
-                        dashboardController.changeTabIndex(3);
-                      }),
-                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
-                        dashboardController.changeTabIndex(4);
-                      }),
-                    ],
-                  ),
-                ),
               ),
               CustomPaint(
                 painter: BottomBarBorderPainter(),
                 child: Container(
                   height: 90,
                 ),
-              )
+              ),
+              Positioned.fill(
+                child: Align(
+                  //padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      RadiantGradientMask(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12.0),
+                          child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () {
+                            dashboardController.changeTabIndex(0);
+                          }),
+                        ),
+                        gradient: pinkRadialGradientCenterBottomRight,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
+                          dashboardController.changeTabIndex(1);
+                        }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 38.0, right: 46.0),
+                        child: IconButton(icon: Icon(Icons.circle, size: 80,), onPressed: () {
+                          dashboardController.changeTabIndex(2);
+                        }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
+                          dashboardController.changeTabIndex(3);
+                        }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
+                          dashboardController.changeTabIndex(4);
+                        }),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
