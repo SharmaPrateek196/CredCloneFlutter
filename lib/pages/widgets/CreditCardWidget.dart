@@ -13,7 +13,7 @@ class CreditCardLayout extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Neumorphic(
         style: NeumorphicStyle(
-          depth: 8,
+          depth: 4.5,
           lightSource: LightSource.bottom,
           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
           color: HexColor.fromHex(White),
@@ -121,21 +121,20 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        NeumorphicButton(
+                        MaterialButton(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 20.0),
-                          style: NeumorphicStyle(
-                            boxShape: NeumorphicBoxShape.roundRect(
-                              BorderRadius.circular(50),
-                            ),
-                            depth: 20,
-                            lightSource: LightSource.top,
-                            shadowLightColor: HexColor.fromHex(DarkBackground),
+                              vertical: 10.0, horizontal: 20.0,
                           ),
+                          color: HexColor.fromHex(ExtraDarkBackground),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0)
+                          ),
+                          onPressed: (){},
                           child: Text(
                             "Pay now",
                             style: TextStyle(
                               fontSize: 16,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold
                             ),
                           ),
