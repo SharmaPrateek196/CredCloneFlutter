@@ -103,43 +103,45 @@ class HomePage extends StatelessWidget {
       ),
     );
 
+    final _homeAppBar = AppBar(
+      toolbarHeight: _toolbarHeight,
+      leadingWidth: 80.0,
+      elevation: 9.0,
+      leading: Container(
+        margin: EdgeInsets.all(4),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Neumorphic(
+                style: _avatarStyle,
+                margin: EdgeInsets.all(4),
+                child: Image.asset("assets/images/icici.png")
+            ),
+            Text(
+              "profile",
+              style: _appBarTextStyle,
+            )
+          ],
+        ),
+      ),
+      actions: [
+        Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _storiesButton,
+              _notificationButton,
+              _controlButton
+            ],
+          ),
+        )
+      ],
+    );
+
     return SafeArea(
         child: Scaffold(
           backgroundColor: HexColor.fromHex(DarkBackground),
-          appBar: AppBar(
-            toolbarHeight: _toolbarHeight,
-            leadingWidth: 80.0,
-            elevation: 9.0,
-            leading: Container(
-              margin: EdgeInsets.all(4),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Neumorphic(
-                      style: _avatarStyle,
-                      margin: EdgeInsets.all(4),
-                      child: Image.asset("assets/images/icici.png")
-                  ),
-                  Text(
-                    "profile",
-                    style: _appBarTextStyle,
-                  )
-                ],
-              ),
-            ),
-            actions: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _storiesButton,
-                    _notificationButton,
-                    _controlButton
-                  ],
-                ),
-              )
-            ],
-          ),
+          appBar: _homeAppBar,
         )
     );
   }
