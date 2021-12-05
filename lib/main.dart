@@ -74,18 +74,24 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dashboardController = Get.put(DashboardController());
-    final logger = Logger();
+
+    _onBottomTabPressed(int indexToMoveTo) {
+      dashboardController.changeTabIndex(indexToMoveTo);
+    }
+
+    final _bottomTabScreensList = [
+      HomePage(),
+      CardsPage(),
+      CentralPage(),
+      MoneyPage(),
+      ClubPage()
+    ];
+
     return Obx(() => Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),
       body: IndexedStack(
         index: dashboardController.currentTabIndex.value,
-        children: [
-          HomePage(),
-          CardsPage(),
-          CentralPage(),
-          MoneyPage(),
-          ClubPage()
-        ],
+        children: _bottomTabScreensList,
       ),
       bottomNavigationBar: BottomAppBar(
         color: HexColor.fromHex(DarkBackground),
@@ -117,35 +123,25 @@ class DashboardPage extends StatelessWidget {
                       RadiantGradientMask(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 12.0),
-                          child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () {
-                            dashboardController.changeTabIndex(0);
-                          }),
+                          child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () { _onBottomTabPressed(0); }),
                         ),
                         gradient: pinkRadialGradientCenterBottomRight,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
-                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
-                          dashboardController.changeTabIndex(1);
-                        }),
+                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () { _onBottomTabPressed(1); }),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 38.0, right: 46.0),
-                        child: IconButton(icon: Icon(Icons.circle, size: 80,), onPressed: () {
-                          dashboardController.changeTabIndex(2);
-                        }),
+                        child: IconButton(icon: Icon(Icons.circle, size: 80,), onPressed: () { _onBottomTabPressed(2); }),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
-                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
-                          dashboardController.changeTabIndex(3);
-                        }),
+                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () { _onBottomTabPressed(3); }),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
-                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
-                          dashboardController.changeTabIndex(4);
-                        }),
+                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () { _onBottomTabPressed(4); }),
                       ),
                     ],
                   ),
@@ -155,9 +151,6 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
       ),
-      // body: ListView(
-      //   children: [CreditCardLayout(), CreditCardLayout(), CreditCardLayout()],
-      // ),
     ));
   }
 }
