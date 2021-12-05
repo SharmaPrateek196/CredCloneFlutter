@@ -1,5 +1,6 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
+import 'package:cred/ui/widgets/CreditCardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -105,8 +106,13 @@ class HomePage extends StatelessWidget {
 
     final _homeAppBar = AppBar(
       toolbarHeight: _toolbarHeight,
+      bottom: PreferredSize(
+        preferredSize: Size(double.infinity, 0.1,),
+        child: Divider(thickness: 1, height: 0.1, color: HexColor.fromHex(ShadowGray),)
+      ),
+      shadowColor: HexColor.fromHex(ExtraDarkBackground),
       leadingWidth: 80.0,
-      elevation: 9.0,
+      elevation: 20,
       leading: Container(
         margin: EdgeInsets.all(4),
         child: Column(
@@ -142,6 +148,13 @@ class HomePage extends StatelessWidget {
         child: Scaffold(
           backgroundColor: HexColor.fromHex(DarkBackground),
           appBar: _homeAppBar,
+          body: ListView(
+            children: [
+              CreditCardLayout(),
+              CreditCardLayout(),
+              CreditCardLayout(),
+            ]
+          ),
         )
     );
   }
