@@ -53,3 +53,11 @@ MaterialColor darkMaterialBlack = const MaterialColor(
     900: const Color(0xFF191A19)
   },
 );
+
+// Routes
+String RouteDashboard = "/dashboard";
+String RouteHome = "/home";
+String RouteCards = "/cards";
+String RouteMoney = "/money";
+String RouteClub = "/club";
+String RouteCentralTab = "/central_tab";

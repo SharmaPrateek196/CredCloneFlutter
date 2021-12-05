@@ -1,11 +1,23 @@
-import 'package:cred/DashboardBinding.dart';
+import 'package:cred/ui/pages/cards/CardsPage.dart';
+import 'package:cred/ui/pages/cards/CardsPageBinding.dart';
+import 'package:cred/ui/pages/centraltab/CentralPage.dart';
+import 'package:cred/ui/pages/centraltab/CentralPageBinding.dart';
+import 'package:cred/ui/pages/club/ClubPage.dart';
+import 'package:cred/ui/pages/club/ClubPageBinding.dart';
+import 'package:cred/ui/pages/dashboard/DashboardBinding.dart';
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/core/RadialGradientMask.dart';
-import 'package:cred/pages/widgets/CreditCardWidget.dart';
+import 'package:cred/ui/pages/dashboard/DashboardController.dart';
+import 'package:cred/ui/pages/home/HomePage.dart';
+import 'package:cred/ui/pages/home/HomePageBinding.dart';
+import 'package:cred/ui/pages/money/MoneyPage.dart';
+import 'package:cred/ui/pages/money/MoneyPageBinding.dart';
+import 'package:cred/ui/widgets/CreditCardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 import 'core/BottomBarClipper.dart';
 
@@ -25,24 +37,56 @@ class MyApp extends StatelessWidget {
       ),
       getPages: [
         GetPage(
-          name: "/dashboard",
-          page: () => MyHomePage(),
+          name: RouteDashboard,
+          page: () => DashboardPage(),
           binding: DashBoardBinding(),
+        ),GetPage(
+          name: RouteHome,
+          page: () => HomePage(),
+          binding: HomePageBinding(),
+        ),GetPage(
+          name: RouteCards,
+          page: () => CardsPage(),
+          binding: CardsPageBinding(),
+        ),GetPage(
+          name: RouteCentralTab,
+          page: () => CentralPage(),
+          binding: CentralPageBinding(),
+        ),GetPage(
+          name: RouteMoney,
+          page: () => MoneyPage(),
+          binding: MoneyPageBinding(),
+        ),GetPage(
+          name: RouteClub,
+          page: () => ClubPage(),
+          binding: ClubPageBinding(),
         ),
       ],
-      initialRoute: "/dashboard",
-      home: MyHomePage(),
+      initialRoute: RouteDashboard,
+      home: DashboardPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key key}) : super(key: key);
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final dashboardController = Get.put(DashboardController());
+    final logger = Logger();
+    return Obx(() => Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),
+      body: IndexedStack(
+        index: dashboardController.currentTabIndex.value,
+        children: [
+          HomePage(),
+          CardsPage(),
+          CentralPage(),
+          MoneyPage(),
+          ClubPage()
+        ],
+      ),
       bottomNavigationBar: BottomAppBar(
         color: HexColor.fromHex(DarkBackground),
         child: ClipPath(
@@ -50,7 +94,7 @@ class MyHomePage extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                height: 85,
+                height: 90,
                 decoration: BoxDecoration(
                   color: HexColor.fromHex(ExtraDarkBackground),
                 ),
@@ -62,16 +106,26 @@ class MyHomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       RadiantGradientMask(
-                        child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () {}),
+                        child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () {
+                          dashboardController.changeTabIndex(0);
+                        }),
                         gradient: pinkRadialGradientCenterBottomRight,
                       ),
-                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {}),
+                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
+                        dashboardController.changeTabIndex(1);
+                      }),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 28.0, right: 34.0),
-                        child: IconButton(icon: Icon(Icons.circle, size: 70,), onPressed: () {}),
+                        child: IconButton(icon: Icon(Icons.circle, size: 70,), onPressed: () {
+                          dashboardController.changeTabIndex(2);
+                        }),
                       ),
-                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {}),
-                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {}),
+                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
+                        dashboardController.changeTabIndex(3);
+                      }),
+                      IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () {
+                        dashboardController.changeTabIndex(4);
+                      }),
                     ],
                   ),
                 ),
@@ -79,16 +133,16 @@ class MyHomePage extends StatelessWidget {
               CustomPaint(
                 painter: BottomBarBorderPainter(),
                 child: Container(
-                  height: 85,
+                  height: 90,
                 ),
               )
             ],
           ),
         ),
       ),
-      body: ListView(
-        children: [CreditCardLayout(), CreditCardLayout(), CreditCardLayout()],
-      ),
-    );
+      // body: ListView(
+      //   children: [CreditCardLayout(), CreditCardLayout(), CreditCardLayout()],
+      // ),
+    ));
   }
 }
