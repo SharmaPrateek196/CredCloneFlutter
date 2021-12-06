@@ -1,6 +1,7 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/ui/widgets/CreditCardWidget.dart';
+import 'package:cred/ui/widgets/HomeAdvCardWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -152,26 +153,27 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                   child: ListView(
                       children: [
-                      Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                          SizedBox(height: 20,),
-                          Text(
-                            "hello, Prateek", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-                          ),
-                          SizedBox(height: 14,),
-                          Text(
-                            "here are today's", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
-                          ),
-                          SizedBox(height: 8,),
-                          Text(
-                            "recommended actions for you", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
-                          ),
-                        ]
-                      ),
-                        CreditCardLayout(),
-                        CreditCardLayout(),
-                        CreditCardLayout(),
+                        Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                            SizedBox(height: 32,),
+                            Text(
+                              "hello, Prateek", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                            ),
+                            SizedBox(height: 14,),
+                            Text(
+                              "here are today's", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
+                            ),
+                            SizedBox(height: 8,),
+                            Text(
+                              "recommended actions for you", style: TextStyle(fontSize: 16, color: HexColor.fromHex(TextGray)),
+                            ),
+                            SizedBox(height: 12,),
+                          ]
+                        ),
+                        HomeAdvCardModel(),
+                        HomeAdvCardModel(),
+                        HomeAdvCardModel(),
                       ]
                   ),
           )
