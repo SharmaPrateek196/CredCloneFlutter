@@ -2,6 +2,7 @@ import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/ui/widgets/CreditCardWidget.dart';
 import 'package:cred/ui/widgets/HomeAdvCardWidget.dart';
+import 'package:cred/ui/widgets/NewCCWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -170,9 +171,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 12,),
                       ]
                     ),
-                    HomeAdvCardModel(),
-                    HomeAdvCardModel(),
-                    HomeAdvCardModel(),
+                    NewCCLayout(),
                   ]
               ),
       )
