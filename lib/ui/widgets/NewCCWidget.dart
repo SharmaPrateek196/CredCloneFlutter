@@ -46,14 +46,22 @@ class _NewCCWidgetState extends State<NewCCWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240,
+      height: 235,
+      margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(20),
-      color: Colors.greenAccent,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(12)
+        ),
+        color: HexColor.fromHex(CCDarkBackground)
+      ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 "HDFC PLATINUM",
@@ -68,114 +76,41 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                 height: 20,
               ),
             ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "4334 8397 XXXX 8321",
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      letterSpacing: 1
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Text(
+                    "PRATEEK SHARMA",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                      letterSpacing: 0.5
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                child: Image.asset("assets/images/visa_logo.png"),
+                height: 18,
+              )
+            ],
           )
-
-          // SizedBox(
-          //   width: double.infinity,
-          //   child: Text(
-          //     "clear your upcoming bills to earn coins",
-          //     style: TextStyle(
-          //       fontSize: 18,
-          //       color: HexColor.fromHex(TextBlack),
-          //       fontWeight: FontWeight.bold,
-          //     ),
-          //   ),
-          // ),
-          // SizedBox(
-          //   height: 20,
-          // ),
-          // Row(
-          //   mainAxisSize: MainAxisSize.max,
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   children: [
-          //     SizedBox(
-          //       width: 10,
-          //     ),
-          //     SizedBox(
-          //       child: Image.asset("assets/images/icici.png"),
-          //       width: 32,
-          //       height: 32,
-          //     ),
-          //     SizedBox(
-          //       width: 20,
-          //     ),
-          //     Expanded(
-          //       child: Column(
-          //         children: [
-          //           Row(
-          //             mainAxisSize: MainAxisSize.max,
-          //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //             children: [
-          //               Column(
-          //                 crossAxisAlignment: CrossAxisAlignment.start,
-          //                 children: [
-          //                   Text(
-          //                     "ICICI Bank",
-          //                     style: TextStyle(
-          //                       fontSize: 18,
-          //                       color: HexColor.fromHex(TextBlack),
-          //                       fontWeight: FontWeight.bold,
-          //                     ),
-          //                   ),
-          //                   Text(
-          //                     "XXXX-1206",
-          //                     style: TextStyle(
-          //                       fontSize: 16,
-          //                       color: HexColor.fromHex(Grey),
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //               Text(
-          //                 "₹ 11,327.6",
-          //                 style: TextStyle(
-          //                   fontSize: 18,
-          //                   color: HexColor.fromHex(TextBlack),
-          //                   fontWeight: FontWeight.bold,
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //           SizedBox(height: 12),
-          //           Row(
-          //             mainAxisSize: MainAxisSize.max,
-          //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //             children: [
-          //               Text(
-          //                 "DUE IN 3 DAYS",
-          //                 textAlign: TextAlign.start,
-          //                 style: TextStyle(
-          //                   fontSize: 16,
-          //                   color: HexColor.fromHex(Maroon),
-          //                   fontWeight: FontWeight.bold,
-          //                 ),
-          //               ),
-          //               MaterialButton(
-          //                 padding: const EdgeInsets.symmetric(
-          //                   vertical: 10.0, horizontal: 20.0,
-          //                 ),
-          //                 color: HexColor.fromHex(ExtraDarkBackground),
-          //                 shape: RoundedRectangleBorder(
-          //                     borderRadius: BorderRadius.circular(50.0)
-          //                 ),
-          //                 onPressed: (){},
-          //                 child: Text(
-          //                   "Pay now",
-          //                   style: TextStyle(
-          //                       fontSize: 16,
-          //                       color: Colors.white,
-          //                       fontWeight: FontWeight.bold
-          //                   ),
-          //                 ),
-          //               )
-          //             ],
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );
