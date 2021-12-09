@@ -1,11 +1,11 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
-import 'package:cred/ui/pages/cards/tabs/BenefitsPage.dart';
+import 'package:cred/ui/pages/cards/tabs/benefits/BenefitsPage.dart';
 import 'package:cred/ui/pages/cards/tabs/CardsTabsController.dart';
-import 'package:cred/ui/pages/cards/tabs/ExtrasPage.dart';
-import 'package:cred/ui/pages/cards/tabs/ManagePage.dart';
-import 'package:cred/ui/pages/cards/tabs/MaxPage.dart';
-import 'package:cred/ui/pages/cards/tabs/MyCardsPage.dart';
+import 'package:cred/ui/pages/cards/tabs/extras/ExtrasPage.dart';
+import 'package:cred/ui/pages/cards/tabs/manage/ManagePage.dart';
+import 'package:cred/ui/pages/cards/tabs/max/MaxPage.dart';
+import 'package:cred/ui/pages/cards/tabs/mycards/MyCardsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
