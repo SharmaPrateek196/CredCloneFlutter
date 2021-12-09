@@ -1,0 +1,5 @@
+import 'package:cred/models/HomeAdvModel.dart';
+
+abstract class HomeAdvRepo {
+  Future<List<HomeAdvModel>> fetchHomeAdvList();
+}

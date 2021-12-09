@@ -1,0 +1,11 @@
+import 'package:cred/data/api/FakeApis.dart';
+import 'package:cred/data/fakedata/AllFakeDataFile.dart';
+import 'package:cred/models/HomeAdvModel.dart';
+
+class FakeApisImpl implements FakeApis {
+  @override
+  Future<List<HomeAdvModel>> getHomeAdvertizes() {
+    return Future.delayed(const Duration(seconds: 4), () => homeAdvList);
+  }
+
+}
