@@ -71,7 +71,7 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dashboardController = Get.put(DashboardController());
+    final dashboardController = Get.find<DashboardController>();
 
     _onBottomTabPressed(int indexToMoveTo) {
       dashboardController.changeTabIndex(indexToMoveTo);
