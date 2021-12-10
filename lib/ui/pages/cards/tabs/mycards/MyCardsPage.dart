@@ -105,9 +105,9 @@ class AddCardRow extends StatelessWidget {
                 if(index == 0) { return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _addCardRow, NewCCLayout(/*homeAdvModel: list[index], callback: _claimOnPressed*/)
+                    _addCardRow, NewCCLayout(ccModel: list[index], callback: null)
                   ],); }
-                else { return NewCCLayout(/*homeAdvModel: list[index], callback: _claimOnPressed*/); }
+                else { return NewCCLayout(ccModel: list[index], callback: null); }
               },
             ),
           )

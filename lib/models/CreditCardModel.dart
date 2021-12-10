@@ -1,4 +1,5 @@
 class CreditCardModel {
+  int index;
   String cardNumber;
   String cardHolder;
   String due;
@@ -6,6 +7,7 @@ class CreditCardModel {
   bool isPaid;
 
   CreditCardModel(
+    this.index,
     this.cardNumber,
     this.cardHolder,
     this.due,

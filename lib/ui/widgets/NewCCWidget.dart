@@ -1,11 +1,19 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
+import 'package:cred/models/CreditCardModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-class NewCCLayout extends StatelessWidget {
-  const NewCCLayout({Key key}) : super(key: key);
+class NewCCLayout extends StatefulWidget {
+  const NewCCLayout({Key key, @required this.ccModel, @required this.callback}) : super(key: key);
+  final CreditCardModel ccModel;
+  final Function callback;
 
+  @override
+  State<NewCCLayout> createState() => _NewCCLayoutState();
+}
+
+class _NewCCLayoutState extends State<NewCCLayout> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +28,7 @@ class NewCCLayout extends StatelessWidget {
               border: NeumorphicBorder(color: HexColor.fromHex(DarkBackground), width: 4),
               boxShape: NeumorphicBoxShape.roundRect(BorderRadius.all(Radius.circular(12)))
             ),
-            child: NewCCWidget(),
+            child: NewCCWidget(ccModel: widget.ccModel, callback: widget.callback,),
           ),
         )
     );
@@ -28,7 +36,9 @@ class NewCCLayout extends StatelessWidget {
 }
 
 class NewCCWidget extends StatefulWidget {
-  const NewCCWidget({Key key}) : super(key: key);
+  const NewCCWidget({Key key, @required this.ccModel, @required this.callback}) : super(key: key);
+  final CreditCardModel ccModel;
+  final Function callback;
 
   @override
   _NewCCWidgetState createState() => _NewCCWidgetState();
@@ -37,6 +47,13 @@ class NewCCWidget extends StatefulWidget {
 class _NewCCWidgetState extends State<NewCCWidget> {
   @override
   Widget build(BuildContext context) {
+    var _isPaid = widget.ccModel.isPaid;
+    final _onIsPaidClicked = () {
+      setState((){
+        _isPaid = true;
+      });
+      //widget.callback(widget.homeAdvModel.index);
+    };
 
     final _divider = SizedBox(
       height: 0.1,
@@ -94,7 +111,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "4334 8397 XXXX 8321",
+                        widget.ccModel.cardNumber,
                         style: TextStyle(
                           fontSize: 17,
                           color: Colors.white,
@@ -104,7 +121,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       ),
                       SizedBox(height: 10,),
                       Text(
-                        "PRATEEK SHARMA",
+                        widget.ccModel.cardHolder,
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -145,7 +162,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       ),
                       SizedBox(height: 10,),
                       Text(
-                        "₹15,616",
+                        widget.ccModel.due,
                         style: TextStyle(
                           fontSize: 17,
                           color: Colors.white,
@@ -155,7 +172,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     ],
                   ),
                   Text(
-                    "DUE IN 9 DAYS",
+                    widget.ccModel.dueInDays,
                     style: TextStyle(
                       fontSize: 15,
                       color: HexColor.fromHex(CreamyYellow),
@@ -224,10 +241,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                           boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
                           border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4.5)
                       ),
-                      onPressed: () {},
+                      onPressed: _isPaid ? null : () {_onIsPaidClicked();},
                       child: Center(
                         child: Text(
-                          "Pay Now",
+                          _isPaid ? "Paid" : "Pay Now",
                           style: TextStyle(
                               fontSize: 14,
                               color: Colors.white,
