@@ -69,6 +69,183 @@ class _NewCCWidgetState extends State<NewCCWidget> {
       ),
     );
 
+    final _cardBranding = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          "HDFC PLATINUM",
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        SizedBox(
+          child: Image.asset("assets/images/hdfc_logo.png"),
+          height: 20,
+        ),
+      ],
+    );
+
+    final _cardFooter = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.ccModel.cardNumber,
+              style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.white,
+                  fontWeight: FontWeight.normal,
+                  letterSpacing: 1.5
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text(
+              widget.ccModel.cardHolder,
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontWeight: FontWeight.normal,
+                  letterSpacing: 0.5
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          child: Image.asset("assets/images/visa_logo.png"),
+          height: 18,
+        )
+      ],
+    );
+
+    final _cardDebtDetailsAndActions = Container(
+      margin: const EdgeInsets.all(24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "total due",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: HexColor.fromHex(CCTextGray),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Text(
+                    widget.ccModel.due,
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                widget.ccModel.dueInDays,
+                style: TextStyle(
+                    fontSize: 15,
+                    color: HexColor.fromHex(CreamyYellow),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.2,
+                    wordSpacing: 1.5
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 24,),
+          Text(
+            "NO HIDDEN CHARGES",
+            style: TextStyle(
+                fontSize: 15,
+                color: HexColor.fromHex(Green),
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
+                wordSpacing: 1.5
+            ),
+          ),
+          SizedBox(height: 24,),
+          _divider,
+          SizedBox(height: 18,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: NeumorphicButton(
+                  padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 0.0),
+                  margin: const EdgeInsets.only(top: 4, bottom: 4, right: 12),
+                  style: NeumorphicStyle(
+                      color: HexColor.fromHex(DarkBackground),
+                      shape: NeumorphicShape.convex,
+                      surfaceIntensity: 0.15,
+                      depth: 13,
+                      intensity: 0.45,
+                      lightSource: LightSource.topLeft,
+                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40))
+                  ),
+                  onPressed: () {},
+                  child: Center(
+                    child: Text(
+                      "Manage",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1,
+                          wordSpacing: 1.5
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: NeumorphicButton(
+                  padding: const EdgeInsets.symmetric(vertical: 19.0, horizontal: 0.0),
+                  margin: const EdgeInsets.only(top: 4, bottom: 4, left: 12),
+                  style: NeumorphicStyle(
+                      color: HexColor.fromHex(PayNowButtonBlue),
+                      shape: NeumorphicShape.convex,
+                      depth: 13,
+                      intensity: 0.45,
+                      lightSource: LightSource.topLeft,
+                      boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
+                      border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4.5)
+                  ),
+                  onPressed: _isPaid ? null : () {_onIsPaidClicked();},
+                  child: Center(
+                    child: Text(
+                      _isPaid ? "Paid" : "Pay Now",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1,
+                          wordSpacing: 1.5
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+
     return Column(
       children: [
         Container(
@@ -84,183 +261,12 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "HDFC PLATINUM",
-                    style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  SizedBox(
-                    child: Image.asset("assets/images/hdfc_logo.png"),
-                    height: 20,
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.ccModel.cardNumber,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                          letterSpacing: 1.5
-                        ),
-                      ),
-                      SizedBox(height: 10,),
-                      Text(
-                        widget.ccModel.cardHolder,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                          letterSpacing: 0.5
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    child: Image.asset("assets/images/visa_logo.png"),
-                    height: 18,
-                  )
-                ],
-              )
+              _cardBranding,
+              _cardFooter
             ],
           ),
         ),
-        Container(
-          margin: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "total due",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: HexColor.fromHex(CCTextGray),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      SizedBox(height: 10,),
-                      Text(
-                        widget.ccModel.due,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    widget.ccModel.dueInDays,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: HexColor.fromHex(CreamyYellow),
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.2,
-                      wordSpacing: 1.5
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 24,),
-              Text(
-                "NO HIDDEN CHARGES",
-                style: TextStyle(
-                    fontSize: 15,
-                    color: HexColor.fromHex(Green),
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1,
-                    wordSpacing: 1.5
-                ),
-              ),
-              SizedBox(height: 24,),
-              _divider,
-              SizedBox(height: 18,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: NeumorphicButton(
-                      padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 0.0),
-                      margin: const EdgeInsets.only(top: 4, bottom: 4, right: 12),
-                      style: NeumorphicStyle(
-                        color: HexColor.fromHex(DarkBackground),
-                        shape: NeumorphicShape.convex,
-                        surfaceIntensity: 0.15,
-                        depth: 13,
-                        intensity: 0.45,
-                        lightSource: LightSource.topLeft,
-                        boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40))
-                      ),
-                      onPressed: () {},
-                      child: Center(
-                        child: Text(
-                          "Manage",
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              wordSpacing: 1.5
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: NeumorphicButton(
-                      padding: const EdgeInsets.symmetric(vertical: 19.0, horizontal: 0.0),
-                      margin: const EdgeInsets.only(top: 4, bottom: 4, left: 12),
-                      style: NeumorphicStyle(
-                          color: HexColor.fromHex(PayNowButtonBlue),
-                          shape: NeumorphicShape.convex,
-                          depth: 13,
-                          intensity: 0.45,
-                          lightSource: LightSource.topLeft,
-                          boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
-                          border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4.5)
-                      ),
-                      onPressed: _isPaid ? null : () {_onIsPaidClicked();},
-                      child: Center(
-                        child: Text(
-                          _isPaid ? "Paid" : "Pay Now",
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1,
-                              wordSpacing: 1.5
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        )
+        _cardDebtDetailsAndActions
       ],
     );
   }
