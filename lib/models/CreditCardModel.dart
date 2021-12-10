@@ -1,17 +1,13 @@
-import 'dart:ffi';
-
 class CreditCardModel {
-  String bankName;
-  String bankLogo;
   String cardNumber;
-  Double due;
-  int dueInDays;
+  String cardHolder;
+  String due;
+  String dueInDays;
   bool isPaid;
 
   CreditCardModel(
-    this.bankName,
-    this.bankLogo,
     this.cardNumber,
+    this.cardHolder,
     this.due,
     this.dueInDays,
     this.isPaid,

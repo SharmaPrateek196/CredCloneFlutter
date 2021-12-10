@@ -7,8 +7,9 @@ class HomePageController extends GetxController {
   var isLoading = false.obs;
   var homeAdvListData = <HomeAdvModel>[].obs;
 
-  HomeAdvRepo _repo = Get.put(HomeAdvRepoImpl());
+  HomeAdvRepo _repo;
   HomePageController() {
+    _repo = Get.find<HomeAdvRepoImpl>();
     loadHomeAdvs();
   }
 
