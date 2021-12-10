@@ -1,5 +1,6 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
+import 'package:cred/models/HomeAdvModel.dart';
 import 'package:cred/ui/pages/home/HomePageController.dart';
 import 'package:cred/ui/widgets/HomeAdvCardWidget.dart';
 import 'package:cred/ui/widgets/Loader.dart';
@@ -168,6 +169,10 @@ class HomePage extends StatelessWidget {
         ]
     );
 
+    final _claimOnPressed = (int index) {
+      controller.claimCoupon(index);
+    };
+
     return Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),
       appBar: _homeAppBar,
@@ -179,8 +184,13 @@ class HomePage extends StatelessWidget {
             ListView.builder(
               itemCount: controller.homeAdvListData.value.length,
               itemBuilder: (context, index) {
-                if(index == 0) { return _greetingHeader; }
-                else { return HomeAdvCardModel(); }
+                List<HomeAdvModel> list = controller.homeAdvListData.value;
+                if(index == 0) { return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                  _greetingHeader, HomeAdvCardModel(homeAdvModel: list[index], callback: _claimOnPressed)
+                ],); }
+                else { return HomeAdvCardModel(homeAdvModel: list[index], callback: _claimOnPressed); }
               },
             ),
           ),

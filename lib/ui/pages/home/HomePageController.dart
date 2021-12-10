@@ -18,4 +18,8 @@ class HomePageController extends GetxController {
     isLoading.value = false;
     homeAdvListData.value = result;
   }
+
+  void claimCoupon(int index) async {
+    await _repo.claimCoupon(index);
+  }
 }

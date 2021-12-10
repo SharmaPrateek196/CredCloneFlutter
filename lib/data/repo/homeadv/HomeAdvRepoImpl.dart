@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cred/data/api/FakeApis.dart';
 import 'package:cred/data/api/FakeApisImpl.dart';
 import 'package:cred/models/HomeAdvModel.dart';
@@ -15,5 +17,10 @@ class HomeAdvRepoImpl implements HomeAdvRepo {
   @override
   Future<List<HomeAdvModel>> fetchHomeAdvList() async {
     return await api.getHomeAdvertizes();
+  }
+
+  @override
+  Future<void> claimCoupon(int index) async {
+    await api.claimCoupon(index);
   }
 }

@@ -8,4 +8,9 @@ class FakeApisImpl implements FakeApis {
     return Future.delayed(const Duration(seconds: 4), () => homeAdvList);
   }
 
+  @override
+  Future<void> claimCoupon(int index) {
+    homeAdvList[index].isClaimed = true;
+  }
+
 }
