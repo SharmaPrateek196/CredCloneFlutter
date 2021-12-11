@@ -36,7 +36,12 @@ class CentralPage extends StatelessWidget {
                       color: HexColor.fromHex(DarkBackground),
                     ),
                   ),
-                  IconButton(icon: Icon(Icons.cancel, color: Colors.white30,), onPressed: (){}, iconSize: 55,),
+                  IconButton(
+                    icon: Icon(Icons.cancel, color: Colors.white30,),
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
+                    iconSize: 55,),
                 ],
               ),
             ),
