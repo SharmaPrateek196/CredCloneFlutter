@@ -104,14 +104,10 @@ class DashboardPage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         color: HexColor.fromHex(DarkBackground),
+        child: ClipPath(
+          clipper: BottomBarClipper(),
           child: Stack(
             children: [
-              ClipPath(
-                clipper: BottomBarClipper(),
-                child: Container(
-                  height: 90,
-                ),
-              ),
               CustomPaint(
                 painter: BottomBarBorderPainter(),
                 child: Container(
@@ -156,7 +152,7 @@ class DashboardPage extends StatelessWidget {
               ),
             ],
           ),
-        //),
+        ),
       ),
     ));
   }
