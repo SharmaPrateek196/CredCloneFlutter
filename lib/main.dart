@@ -108,12 +108,6 @@ class DashboardPage extends StatelessWidget {
           clipper: BottomBarClipper(),
           child: Stack(
             children: [
-              Container(
-                height: 90,
-                decoration: BoxDecoration(
-                  color: HexColor.fromHex(ExtraDarkBackground),
-                ),
-              ),
               CustomPaint(
                 painter: BottomBarBorderPainter(),
                 child: Container(
