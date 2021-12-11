@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'CRED',
       debugShowCheckedModeBanner: false,
+      initialBinding: DashBoardBinding(),
       theme: ThemeData(
         primarySwatch: darkMaterialBlack,
       ),
