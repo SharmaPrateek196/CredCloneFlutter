@@ -81,10 +81,20 @@ class DashboardPage extends StatelessWidget {
     final _bottomTabScreensList = [
       HomePage(),
       CardsPage(),
-      CentralPage(),
+      Container(),
       MoneyPage(),
       ClubPage()
     ];
+    
+    void _showBottomSheet() { showModalBottomSheet<dynamic>(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+        builder: (BuildContext context) {
+        return CentralPage();
+        });
+    }
 
     return Obx(() => Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),
@@ -132,7 +142,7 @@ class DashboardPage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 38.0, right: 46.0),
-                        child: IconButton(icon: Icon(Icons.circle, size: 80,), onPressed: () { _onBottomTabPressed(2); }),
+                        child: IconButton(icon: Icon(Icons.circle, size: 80,), onPressed: () { _showBottomSheet(); }),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),

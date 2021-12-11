@@ -1,3 +1,8 @@
+import 'package:cred/core/AppConstants.dart';
+import 'package:cred/core/BottomBarClipper.dart';
+import 'package:cred/core/Extensions.dart';
+import 'package:cred/ui/widgets/CreditCardWidget.dart';
+import 'package:cred/ui/widgets/NewCCWidget.dart';
 import 'package:flutter/material.dart';
 
 class CentralPage extends StatelessWidget {
@@ -6,9 +11,33 @@ class CentralPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Text("Central", style: TextStyle(color: Colors.white),),
-      ),
+      height: MediaQuery.of(context).size.height*0.85,
+      child: Stack(
+        children: [
+          SingleChildScrollView(
+              child: Column(
+                children: [
+                  CreditCardLayout(),
+                  CreditCardLayout(),
+                  CreditCardLayout(),
+                  CreditCardLayout(),
+                ],
+              )
+          ),
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: ClipPath(
+                clipper: BottomSheetCalcelClipper(),
+                child: Container(
+                  height: 90,
+                  color: HexColor.fromHex(DarkBackground),
+                ),
+              ),
+            ),
+          )
+        ]
+      )
     );
   }
 }
