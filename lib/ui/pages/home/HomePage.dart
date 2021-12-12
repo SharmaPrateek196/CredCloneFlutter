@@ -2,6 +2,7 @@ import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/models/HomeAdvModel.dart';
 import 'package:cred/ui/pages/home/HomePageController.dart';
+import 'package:cred/ui/widgets/CreditScoreWidget.dart';
 import 'package:cred/ui/widgets/HomeAdvCardWidget.dart';
 import 'package:cred/ui/widgets/Loader.dart';
 import 'package:cred/ui/widgets/NewCCWidget.dart';

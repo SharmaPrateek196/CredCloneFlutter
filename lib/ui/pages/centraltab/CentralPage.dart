@@ -12,6 +12,7 @@ class CentralPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _recommendedTextStyle = TextStyle(
         color: HexColor.fromHex(TextGray),
+        fontSize: 16,
         fontWeight: FontWeight.bold
     );
 
