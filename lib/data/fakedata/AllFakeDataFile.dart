@@ -19,3 +19,11 @@ List<CreditCardModel> cards = [
   CreditCardModel(3, "4399 4633 XXXX 8421", "PRATEEK SHARMA", "₹2,50,616", "DUE IN 6 DAYS", false),
   CreditCardModel(4, "4373 5778 XXXX 3784", "PRATEEK SHARMA", "₹1,40,616", "DUE IN 9 DAYS", false),
 ];
+
+List<String> bottomSheetRecommendedList = [
+  "card benefits",
+  "pay rent",
+  "store",
+  "rewards",
+  "extras"
+];

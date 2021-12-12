@@ -89,7 +89,7 @@ class DashboardPage extends StatelessWidget {
     void _showBottomSheet() { showModalBottomSheet<dynamic>(
         context: context,
         isScrollControlled: true,
-        backgroundColor: Colors.white,
+        backgroundColor: HexColor.fromHex(BottomSheetBackground),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
         builder: (BuildContext context) {
         return CentralPage();

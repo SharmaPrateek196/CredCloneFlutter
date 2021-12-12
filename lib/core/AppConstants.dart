@@ -21,6 +21,7 @@ final String CCTextGray = "#626465";
 final String CreamyYellow = "#ffb65f";
 final String Green = "#29a47f";
 final String PayNowButtonBlue = "#3458a1";
+final String BottomSheetBackground = "#f8f8f8";
 
 final pinkRadialGradientCenterBottomRight = RadialGradient(
   center: Alignment.bottomRight,
