@@ -79,7 +79,8 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           style: TextStyle(
             fontSize: 18,
             color: Colors.white,
-            fontWeight: FontWeight.normal,
+            letterSpacing: 1,
+            fontWeight: FontWeight.w500,
           ),
         ),
         SizedBox(
@@ -99,8 +100,9 @@ class _NewCCWidgetState extends State<NewCCWidget> {
             Text(
               widget.ccModel.cardNumber,
               style: TextStyle(
-                  fontSize: 17,
+                  fontSize: 18,
                   color: Colors.white,
+                  fontFamily: 'FiraMono',
                   fontWeight: FontWeight.normal,
                   letterSpacing: 1.5
               ),
@@ -109,8 +111,9 @@ class _NewCCWidgetState extends State<NewCCWidget> {
             Text(
               widget.ccModel.cardHolder,
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 17,
                   color: Colors.white,
+                  fontFamily: 'FiraMono',
                   fontWeight: FontWeight.normal,
                   letterSpacing: 0.5
               ),
@@ -202,9 +205,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     child: Text(
                       "Manage",
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 15,
                           color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Lato',
                           letterSpacing: 1,
                           wordSpacing: 1.5
                       ),
@@ -221,6 +225,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       shape: NeumorphicShape.convex,
                       depth: 13,
                       intensity: 0.45,
+                      surfaceIntensity: 0.2,
                       lightSource: LightSource.topLeft,
                       boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
                       border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4.5)
@@ -230,9 +235,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     child: Text(
                       _isPaid ? "Paid" : "Pay Now",
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 15,
                           color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Lato',
                           letterSpacing: 1,
                           wordSpacing: 1.5
                       ),
