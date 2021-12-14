@@ -1,6 +1,7 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/ui/pages/money/MoneyTabsController.dart';
+import 'package:cred/ui/pages/money/tabs/accounts/AccountsPage.dart';
 import 'package:cred/ui/pages/money/tabs/creditscores/CreditScorePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +44,7 @@ class MoneyPage extends StatelessWidget {
         controller: moneyTabsController.tabController,
         children: [
           CreditScorePage(),
-          CreditScorePage(),
+          AccountsPage(),
           CreditScorePage(),
           CreditScorePage(),
         ],
