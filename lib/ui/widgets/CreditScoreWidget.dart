@@ -1,5 +1,6 @@
 import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
+import 'package:cred/core/GlobalActions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
@@ -72,7 +73,7 @@ class CreditScoreLayout extends StatelessWidget {
             boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
             border: NeumorphicBorder(color: Colors.black, width: 4.5)
         ),
-        onPressed: (){},
+        onPressed: (){ notImplementedSnackbar; },
         child: Text(
           "View report",
           style: TextStyle(
@@ -108,8 +109,9 @@ class CreditScoreLayout extends StatelessWidget {
       );
     }
 
-    return Padding(
+    return Container(
         padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+        margin: const EdgeInsets.all(8),
         child: Neumorphic(
           //padding: const EdgeInsets.all(8),
           style: NeumorphicStyle(
