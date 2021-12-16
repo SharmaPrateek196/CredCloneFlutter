@@ -46,7 +46,7 @@ class WaveClipperZeroAngle extends CustomClipper<Path> {
     path.lineTo(size.width, 40.0);
 
     for (int i = 0; i < 10; i++) {
-      if (i % 2 == 0) {
+      if (i % 2 != 0) {
         path.quadraticBezierTo(
             size.width - (size.width / 16) - (i * size.width / 8),
             0.0,
