@@ -11,9 +11,9 @@ class NotImplementedAnimation extends StatefulWidget {
 
 class _NotImplementedAnimationState extends State<NotImplementedAnimation> with SingleTickerProviderStateMixin {
   CustomAnimationController _animationController;
-  Animation<Color> _colorAnimation;
-  Animation<double> _waterHeightAnimation;
-  Animation<double> _waveAnimation;
+  Animation<double> _waveAnimation1;
+  Animation<double> _waveAnimation2;
+  Animation<double> _boatAnimation;
 
   @override
   void initState() {
@@ -24,29 +24,40 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
 
     _animationController.repeat(reverse: true);
 
-    _waveAnimation = Tween<double> (
+    _waveAnimation1 = Tween<double> (
       begin: -60, end: 0
     ).animate(
       CurvedAnimation(
           parent: _animationController,
           curve: Interval(
             0.0, 1.0,
-            curve: Curves.linear,
+            curve: Curves.bounceOut,
           )
       )
     );
 
-    _waterHeightAnimation = Tween<double>(
-      begin: 50.0,
-      end: 800.0,
+    _waveAnimation2 = Tween<double> (
+        begin: -60, end: 0
     ).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Interval(
-          0.0, 1.0,
-          curve: Curves.linear,
-        ),
-      ),
+        CurvedAnimation(
+            parent: _animationController,
+            curve: Interval(
+              0, 1,
+              curve: Curves.bounceIn,
+            )
+        )
+    );
+
+    _boatAnimation = Tween<double> (
+        begin: -30, end: 600
+    ).animate(
+        CurvedAnimation(
+            parent: _animationController,
+            curve: Interval(
+              0.0, 1.0,
+              curve: Curves.linear,
+            )
+        )
     );
   }
 
@@ -60,7 +71,7 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
             child: Stack(
               children: [
                 Positioned.fill(
-                  right: _waveAnimation.value, //value of right from animation controller
+                  right: _waveAnimation1.value, //value of right from animation controller
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Wrap(
@@ -83,7 +94,7 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
 
                 Positioned.fill(
                   bottom:0, //position at the bottom
-                  left: _waveAnimation.value, //value of left from animation controller
+                  left: _waveAnimation2.value, //value of left from animation controller
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Wrap(
@@ -103,6 +114,19 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
                     ),
                   ),
                  ),
+
+                Positioned(
+                  bottom: 120, //position at the bottom
+                  right: _boatAnimation.value, //value of left from animation controller
+                  child: Wrap(
+                    children: [
+                      Icon(
+                        Icons.houseboat,
+                        size: 120,
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           );
