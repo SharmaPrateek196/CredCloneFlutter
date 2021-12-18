@@ -14,6 +14,7 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
   Animation<double> _waveAnimation1;
   Animation<double> _waveAnimation2;
   Animation<double> _boatAnimation;
+  Animation<double> _angleAnimation;
 
   @override
   void initState() {
@@ -59,6 +60,18 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
             )
         )
     );
+
+    _angleAnimation = Tween<double> (
+        begin: 0.2, end: 1
+    ).animate(
+        CurvedAnimation(
+            parent: _animationController,
+            curve: Interval(
+              0.3, 0.5,
+              curve: Curves.linear,
+            )
+        )
+    );
   }
 
   @override
@@ -66,69 +79,83 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
     return AnimatedBuilder(
         animation: _animationController,
         builder: (BuildContext context, Widget child) {
-          return SizedBox(
-            height: 200,
-            child: Stack(
-              children: [
-                Positioned.fill(
-                  right: _waveAnimation1.value, //value of right from animation controller
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Wrap(
-                      children: [
-                        ClipPath(
-                          clipper: WaveClipperRightAngle(), //applying our custom clipper
-                          child: Opacity(
-                            opacity: 0.5,
-                            child: Container(
-                              color: Colors.lightBlueAccent,
-                              width: MediaQuery.of(context).size.width+50,
-                              height: 200,
-                            ),
-                          ),
+          return Stack(
+            children: [
+              Positioned.fill(
+                  top: 20,
+                  child: Transform.scale(
+                    //angle: _angleAnimation.value,
+                    scale: _angleAnimation.value,
+                    child: Center(
+                      child: Text(
+                        "Not Implemented Yet",
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-
-                Positioned.fill(
-                  bottom:0, //position at the bottom
-                  left: _waveAnimation2.value, //value of left from animation controller
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Wrap(
-                      children: [
-                        ClipPath(
-                          clipper: WaveClipperZeroAngle(), //applying our custom clipper
-                          child: Opacity(
-                            opacity: 0.5,
-                            child: Container(
-                              color: Colors.lightBlueAccent,
-                              width: MediaQuery.of(context).size.width+50,
-                              height: 200,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                 ),
-
-                Positioned(
-                  bottom: 120, //position at the bottom
-                  right: _boatAnimation.value, //value of left from animation controller
+                  )
+              ),
+              Positioned.fill(
+                right: _waveAnimation1.value, //value of right from animation controller
+                child: Align(
+                  alignment: Alignment.bottomCenter,
                   child: Wrap(
                     children: [
-                      Icon(
-                        Icons.houseboat,
-                        size: 120,
-                      )
+                      ClipPath(
+                        clipper: WaveClipperRightAngle(), //applying our custom clipper
+                        child: Opacity(
+                          opacity: 0.5,
+                          child: Container(
+                            color: Colors.lightBlueAccent,
+                            width: MediaQuery.of(context).size.width+50,
+                            height: 200,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-              ],
-            ),
+              ),
+
+              Positioned.fill(
+                bottom:0, //position at the bottom
+                left: _waveAnimation2.value, //value of left from animation controller
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Wrap(
+                    children: [
+                      ClipPath(
+                        clipper: WaveClipperZeroAngle(), //applying our custom clipper
+                        child: Opacity(
+                          opacity: 0.5,
+                          child: Container(
+                            color: Colors.lightBlueAccent,
+                            width: MediaQuery.of(context).size.width+50,
+                            height: 200,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+               ),
+
+              Positioned(
+                bottom: 120, //position at the bottom
+                right: _boatAnimation.value, //value of left from animation controller
+                child: Wrap(
+                  children: [
+                    Icon(
+                      Icons.houseboat,
+                      size: 120,
+                    )
+                  ],
+                ),
+              ),
+            ],
           );
         }
     );
