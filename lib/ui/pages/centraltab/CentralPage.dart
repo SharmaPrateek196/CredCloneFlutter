@@ -26,11 +26,16 @@ class CentralPage extends StatelessWidget {
       return SizedBox(
         width: MediaQuery.of(context).size.width/5,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(Icons.eleven_mp, size: 40, color: Colors.black),
-            SizedBox(height: 10,),
-            Text(title, style: TextStyle(fontWeight: FontWeight.w500), textAlign: TextAlign.center,)
+            Image.asset("assets/images/icon_start.png", width: 40, height: 40,),
+            SizedBox(height: 4,),
+            Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                )
+            )
           ],
         ),
       );
@@ -44,7 +49,7 @@ class CentralPage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       "recommended",
@@ -57,13 +62,14 @@ class CentralPage extends StatelessWidget {
                         shrinkWrap: true,
                         primary: true,
                         physics: NeverScrollableScrollPhysics(),
-                        crossAxisSpacing: 8,
-                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 4,
+                        mainAxisSpacing: 8,
                         children: List.generate(4, (index) {
                           return _tile(bottomSheetRecommendedList[index%5], "");
                         }),
                       //),
                     ),
+                    SizedBox(height: 10,),
                     Text(
                       "CARDS",
                       style: _cardsTextStyle,
@@ -80,6 +86,7 @@ class CentralPage extends StatelessWidget {
                         return _tile(bottomSheetRecommendedList[index%5], "");
                       }),
                     ),
+                    SizedBox(height: 10,),
                     Text(
                       "CARDS",
                       style: _cardsTextStyle,

@@ -75,7 +75,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "HDFC PLATINUM",
+          widget.ccModel.bankName,
           style: TextStyle(
             fontSize: 18,
             color: Colors.white,
@@ -84,8 +84,9 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           ),
         ),
         SizedBox(
-          child: Image.asset("assets/images/hdfc_logo.png"),
-          height: 20,
+          child: Image.asset(widget.ccModel.bankPath, width: 100, alignment: Alignment.centerRight,),
+          height: 30,
+          width: 120,
         ),
       ],
     );
@@ -94,35 +95,41 @@ class _NewCCWidgetState extends State<NewCCWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.ccModel.cardNumber,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontFamily: 'FiraMono',
-                  fontWeight: FontWeight.normal,
-                  letterSpacing: 1.5
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.ccModel.cardNumber,
+                maxLines: 1,
+                textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontFamily: 'FiraMono',
+                    fontWeight: FontWeight.normal,
+                    letterSpacing: 1.5
+                ),
               ),
-            ),
-            SizedBox(height: 10,),
-            Text(
-              widget.ccModel.cardHolder,
-              style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                  fontFamily: 'FiraMono',
-                  fontWeight: FontWeight.normal,
-                  letterSpacing: 0.5
+              SizedBox(height: 10,),
+              Text(
+                widget.ccModel.cardHolder,
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.white,
+                    fontFamily: 'FiraMono',
+                    fontWeight: FontWeight.normal,
+                    letterSpacing: 0.5
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         SizedBox(
-          child: Image.asset("assets/images/visa_logo.png"),
-          height: 18,
+          child: Image.asset(widget.ccModel.ccProviderPath),
+          height: 28,
+          width: 34,
         )
       ],
     );
@@ -261,6 +268,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(12)
+            ),
+            image: DecorationImage(
+              image: Image.asset(widget.ccModel.bgPath).image,
+              fit: BoxFit.fill
             ),
             color: HexColor.fromHex(CCDarkBackground)
           ),

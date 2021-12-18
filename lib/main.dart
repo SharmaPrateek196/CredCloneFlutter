@@ -104,7 +104,7 @@ class DashboardPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(icon: Image.asset("assets/images/icon_cc.png"), onPressed: () { _onBottomTabPressed(0); }),
+          IconButton(icon: Image.asset("assets/images/icon_options.png",), onPressed: () { _onBottomTabPressed(0); }),
           IconButton(icon: Image.asset("assets/images/icon_cc.png"), onPressed: () { _onBottomTabPressed(1); }),
           IconButton(icon: Image.asset("assets/images/icon_cred_golden.png"), onPressed: () { _showBottomSheet(); }),
           IconButton(icon: Image.asset("assets/images/bank_colored.png"), onPressed: () { _onBottomTabPressed(3); }),

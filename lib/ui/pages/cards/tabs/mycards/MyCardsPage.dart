@@ -15,7 +15,7 @@ class MyCardsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
           AddCardRow(),
@@ -38,7 +38,7 @@ class AddCardRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "your cards",
+          " your cards",
           style: TextStyle(
               fontSize: 17,
               color: HexColor.fromHex(TextGray),
@@ -48,8 +48,8 @@ class AddCardRow extends StatelessWidget {
           ),
         ),
         NeumorphicButton(
-          padding: const EdgeInsets.only(top: 4.0, bottom: 4.0, right: 18.0, left: 6.0),
-          margin: const EdgeInsets.only(top: 4, bottom: 4, right: 12),
+          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, right: 18.0, left: 6.0),
+          margin: const EdgeInsets.only(top: 4, bottom: 4),
           style: NeumorphicStyle(
               color: HexColor.fromHex(DarkBackground),
               shape: NeumorphicShape.convex,
@@ -73,7 +73,7 @@ class AddCardRow extends StatelessWidget {
                         color: HexColor.fromHex(DarkBackground),
                         boxShape: NeumorphicBoxShape.circle()
                     ),
-                    child: Icon(Icons.add, color: Colors.white30, size: 16,),
+                    child: Icon(Icons.add, color: Colors.white30, size: 22,),
                   ),
                 ),
                 SizedBox(width: 14,),
@@ -105,7 +105,9 @@ class AddCardRow extends StatelessWidget {
                 if(index == 0) { return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _addCardRow, NewCCLayout(ccModel: list[index], callback: null)
+                    SizedBox(height: 20,),
+                    _addCardRow,
+                    NewCCLayout(ccModel: list[index], callback: null)
                   ],); }
                 else { return NewCCLayout(ccModel: list[index], callback: null); }
               },

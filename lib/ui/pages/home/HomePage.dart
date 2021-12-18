@@ -54,11 +54,31 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _avatarStyle,
                 margin: EdgeInsets.all(5.5),
-                child: Image(image: AssetImage("assets/images/icici.png"), fit: BoxFit.fill,)
+                child: Image(image: AssetImage("assets/images/icon_doodle_left.png"), fit: BoxFit.fill,)
             ),
           ),
           Text(
             "stories",
+            style: _appBarTextStyle,
+          )
+        ],
+      ),
+    );
+
+    final _profileButton = Container(
+      margin: EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Neumorphic(
+                style: _avatarStyle,
+                margin: EdgeInsets.all(5.5),
+                child: Image(image: AssetImage("assets/images/icon_doodle_right.png"), fit: BoxFit.fill,)
+            ),
+          ),
+          Text(
+            "profile",
             style: _appBarTextStyle,
           )
         ],
@@ -118,23 +138,7 @@ class HomePage extends StatelessWidget {
       shadowColor: HexColor.fromHex(ExtraDarkBackground),
       leadingWidth: 80.0,
       elevation: 20,
-      leading: Container(
-        margin: EdgeInsets.all(4),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Neumorphic(
-                style: _avatarStyle,
-                margin: EdgeInsets.all(4),
-                child: Image.asset("assets/images/icici.png")
-            ),
-            Text(
-              "profile",
-              style: _appBarTextStyle,
-            )
-          ],
-        ),
-      ),
+      leading: _profileButton,
       actions: [
         Container(
           child: Row(
