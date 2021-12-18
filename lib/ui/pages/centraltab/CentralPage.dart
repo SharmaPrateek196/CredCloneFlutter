@@ -104,21 +104,21 @@ class CentralPage extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Stack(
-                alignment: Alignment.topCenter,
+                alignment: Alignment.center,
                 children: [
                   ClipPath(
                     clipper: BottomSheetCalcelClipper(),
                     child: Container(
-                      height: 90,
+                      height: 100,
                       color: HexColor.fromHex(DarkBackground),
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.cancel, color: Colors.white30,),
+                    icon: Image.asset("assets/images/icon_cancel3.png", width:80, height: 80,),
                     onPressed: (){
                       Navigator.pop(context);
                     },
-                    iconSize: 55,),
+                  ),
                 ],
               ),
             ),
