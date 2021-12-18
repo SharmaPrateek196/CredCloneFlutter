@@ -24,21 +24,22 @@ class HomePage extends StatelessWidget {
     );
 
     final _avatarStyle = NeumorphicStyle(
-        shape: NeumorphicShape.convex,
+        shape: NeumorphicShape.concave,
         boxShape: NeumorphicBoxShape.circle(),
         depth: 18,
-        color: HexColor.fromHex(DarkBackground),
+        color: Colors.black54,
         lightSource: LightSource.topLeft,
         shadowDarkColor: HexColor.fromHex(DarkBackground),
         shadowLightColor: HexColor.fromHex(DarkBackground),
-        border: NeumorphicBorder(color: HexColor.fromHex(DarkBackground), width: 6.0)
+        border: NeumorphicBorder(color: Colors.black87, width: 6.0)
     );
 
     final _notificationStyle = NeumorphicStyle(
         shape: NeumorphicShape.convex,
         boxShape: NeumorphicBoxShape.circle(),
         depth: 8,
-        intensity: 4,
+        intensity: 2,
+        surfaceIntensity: 0.9,
         shadowLightColor: HexColor.fromHex(ShadowGray),
         color: HexColor.fromHex(DarkBackground),
         lightSource: LightSource.topLeft,
@@ -79,7 +80,8 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _notificationStyle,
                 margin: EdgeInsets.all(4),
-                child: Icon(Icons.alarm)
+                child: Image.asset("assets/images/icon_alarm.png"),
+                padding: const EdgeInsets.all(6),
             ),
           ),
           Text(
@@ -100,7 +102,8 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _notificationStyle,
                 margin: EdgeInsets.all(4),
-                child: Icon(Icons.ten_k)
+                child: Image.asset("assets/images/icon_club.png"),
+                padding: const EdgeInsets.all(8),
             ),
           ),
           Text(
