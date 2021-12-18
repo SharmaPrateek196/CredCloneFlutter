@@ -45,28 +45,23 @@ class HomePage extends StatelessWidget {
         lightSource: LightSource.topLeft,
     );
 
-    final _storiesButton = SizedBox(
-      width: 80.0,
-      height: _toolbarHeight,
-      child: Container(
-        margin: EdgeInsets.all(4),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 60, height: 60,
-              child: Neumorphic(
-                  style: _avatarStyle,
-                  margin: EdgeInsets.all(4),
-                  child: Image(image: AssetImage("assets/images/icici.png"), fit: BoxFit.fill,)
-              ),
+    final _storiesButton = Container(
+      margin: EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Neumorphic(
+                style: _avatarStyle,
+                margin: EdgeInsets.all(5.5),
+                child: Image(image: AssetImage("assets/images/icici.png"), fit: BoxFit.fill,)
             ),
-            Text(
-              "stories",
-              style: _appBarTextStyle,
-            )
-          ],
-        ),
+          ),
+          Text(
+            "stories",
+            style: _appBarTextStyle,
+          )
+        ],
       ),
     );
 
