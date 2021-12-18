@@ -1,3 +1,4 @@
+import 'package:cred/ui/animation/NotImplementedAnimation.dart';
 import 'package:flutter/material.dart';
 
 class ManagePage extends StatelessWidget {
@@ -5,6 +6,6 @@ class ManagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("manage", style: TextStyle(color: Colors.white)));
+    return NotImplementedAnimation();
   }
 }

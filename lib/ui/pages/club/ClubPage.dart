@@ -1,3 +1,4 @@
+import 'package:cred/ui/animation/NotImplementedAnimation.dart';
 import 'package:flutter/material.dart';
 
 class ClubPage extends StatelessWidget {
@@ -5,10 +6,6 @@ class ClubPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Club", style: TextStyle(color: Colors.white),),
-      ),
-    );
+    return NotImplementedAnimation();
   }
 }
