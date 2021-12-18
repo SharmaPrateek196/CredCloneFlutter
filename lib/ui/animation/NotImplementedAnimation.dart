@@ -13,8 +13,9 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
   CustomAnimationController _animationController;
   Animation<double> _waveAnimation1;
   Animation<double> _waveAnimation2;
-  Animation<double> _boatAnimation;
   Animation<double> _angleAnimation;
+  Animation<double> _ltorSlideAnimation;
+  Animation<double> _rtolSlideAnimation;
 
   @override
   void initState() {
@@ -32,7 +33,7 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
           parent: _animationController,
           curve: Interval(
             0.0, 1.0,
-            curve: Curves.bounceOut,
+            curve: Curves.linear,
           )
       )
     );
@@ -44,18 +45,30 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
             parent: _animationController,
             curve: Interval(
               0, 1,
-              curve: Curves.bounceIn,
+              curve: Curves.linear,
             )
         )
     );
 
-    _boatAnimation = Tween<double> (
-        begin: -30, end: 600
+    _ltorSlideAnimation = Tween<double> (
+        begin: -10, end: 400
     ).animate(
         CurvedAnimation(
             parent: _animationController,
             curve: Interval(
-              0.0, 1.0,
+              0.0, 0.5,
+              curve: Curves.linear,
+            )
+        )
+    );
+
+    _rtolSlideAnimation = Tween<double> (
+        begin: -60, end: 400
+    ).animate(
+        CurvedAnimation(
+            parent: _animationController,
+            curve: Interval(
+              0.5, 1.0,
               curve: Curves.linear,
             )
         )
@@ -144,13 +157,28 @@ class _NotImplementedAnimationState extends State<NotImplementedAnimation> with 
                ),
 
               Positioned(
-                bottom: 120, //position at the bottom
-                right: _boatAnimation.value, //value of left from animation controller
+                bottom: 140, //position at the bottom
+                left: _ltorSlideAnimation.value, //value of left from animation controller
                 child: Wrap(
                   children: [
-                    Icon(
-                      Icons.houseboat,
-                      size: 120,
+                    Image.asset(
+                      "assets/images/icon_doodle_right.png",
+                      width: 60,
+                      height: 60,
+                    )
+                  ],
+                ),
+              ),
+
+              Positioned(
+                bottom: 140, //position at the bottom
+                right: _rtolSlideAnimation.value, //value of left from animation controller
+                child: Wrap(
+                  children: [
+                    Image.asset(
+                      "assets/images/icon_doodle_left.png",
+                      width: 60,
+                      height: 60,
                     )
                   ],
                 ),
