@@ -13,7 +13,6 @@ class CreditScoreLayout extends StatelessWidget {
     final _refreshTextStyle = TextStyle(
       color: HexColor.fromHex(RefreshTextGray),
       fontWeight: FontWeight.w500,
-      fontSize: 16.5,
       letterSpacing: 0.5
     );
 
