@@ -47,5 +47,25 @@ class BottomBarBorderPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
   }
+}
 
+class BottomSheetCalcelClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.moveTo(0, size.height*0.9);
+    path.quadraticBezierTo(size.width*0.25, size.height*0.98, size.width*0.38, size.height*0.3);
+    path.quadraticBezierTo(size.width*0.5, -size.height*0.3, size.width*0.62, size.height*0.3);
+    path.quadraticBezierTo(size.width*0.75, size.height*0.98, size.width, size.height*0.9);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.lineTo(0, size.height*0.9);
+     path.lineTo(size.width*0.35, size.height*0.9);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return true;
+  }
 }

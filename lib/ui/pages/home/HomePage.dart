@@ -2,6 +2,7 @@ import 'package:cred/core/AppConstants.dart';
 import 'package:cred/core/Extensions.dart';
 import 'package:cred/models/HomeAdvModel.dart';
 import 'package:cred/ui/pages/home/HomePageController.dart';
+import 'package:cred/ui/widgets/CreditScoreWidget.dart';
 import 'package:cred/ui/widgets/HomeAdvCardWidget.dart';
 import 'package:cred/ui/widgets/Loader.dart';
 import 'package:cred/ui/widgets/NewCCWidget.dart';
@@ -23,48 +24,64 @@ class HomePage extends StatelessWidget {
     );
 
     final _avatarStyle = NeumorphicStyle(
-        shape: NeumorphicShape.convex,
+        shape: NeumorphicShape.concave,
         boxShape: NeumorphicBoxShape.circle(),
         depth: 18,
-        color: HexColor.fromHex(DarkBackground),
+        color: Colors.black54,
         lightSource: LightSource.topLeft,
         shadowDarkColor: HexColor.fromHex(DarkBackground),
         shadowLightColor: HexColor.fromHex(DarkBackground),
-        border: NeumorphicBorder(color: HexColor.fromHex(DarkBackground), width: 6.0)
+        border: NeumorphicBorder(color: Colors.black87, width: 6.0)
     );
 
     final _notificationStyle = NeumorphicStyle(
         shape: NeumorphicShape.convex,
         boxShape: NeumorphicBoxShape.circle(),
         depth: 8,
-        intensity: 4,
+        intensity: 2,
+        surfaceIntensity: 0.9,
         shadowLightColor: HexColor.fromHex(ShadowGray),
         color: HexColor.fromHex(DarkBackground),
         lightSource: LightSource.topLeft,
     );
 
-    final _storiesButton = SizedBox(
-      width: 80.0,
-      height: _toolbarHeight,
-      child: Container(
-        margin: EdgeInsets.all(4),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 60, height: 60,
-              child: Neumorphic(
-                  style: _avatarStyle,
-                  margin: EdgeInsets.all(4),
-                  child: Image(image: AssetImage("assets/images/icici.png"), fit: BoxFit.fill,)
-              ),
+    final _storiesButton = Container(
+      margin: EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Neumorphic(
+                style: _avatarStyle,
+                margin: EdgeInsets.all(5.5),
+                child: Image(image: AssetImage("assets/images/icon_doodle_left.png"), fit: BoxFit.fill,)
             ),
-            Text(
-              "stories",
-              style: _appBarTextStyle,
-            )
-          ],
-        ),
+          ),
+          Text(
+            "stories",
+            style: _appBarTextStyle,
+          )
+        ],
+      ),
+    );
+
+    final _profileButton = Container(
+      margin: EdgeInsets.all(5),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Neumorphic(
+                style: _avatarStyle,
+                margin: EdgeInsets.all(5.5),
+                child: Image(image: AssetImage("assets/images/icon_doodle_right.png"), fit: BoxFit.fill,)
+            ),
+          ),
+          Text(
+            "profile",
+            style: _appBarTextStyle,
+          )
+        ],
       ),
     );
 
@@ -78,7 +95,8 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _notificationStyle,
                 margin: EdgeInsets.all(4),
-                child: Icon(Icons.alarm)
+                child: Image.asset("assets/images/icon_alarm.png"),
+                padding: const EdgeInsets.all(6),
             ),
           ),
           Text(
@@ -99,7 +117,8 @@ class HomePage extends StatelessWidget {
             child: Neumorphic(
                 style: _notificationStyle,
                 margin: EdgeInsets.all(4),
-                child: Icon(Icons.ten_k)
+                child: Image.asset("assets/images/icon_club.png"),
+                padding: const EdgeInsets.all(8),
             ),
           ),
           Text(
@@ -119,23 +138,7 @@ class HomePage extends StatelessWidget {
       shadowColor: HexColor.fromHex(ExtraDarkBackground),
       leadingWidth: 80.0,
       elevation: 20,
-      leading: Container(
-        margin: EdgeInsets.all(4),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Neumorphic(
-                style: _avatarStyle,
-                margin: EdgeInsets.all(4),
-                child: Image.asset("assets/images/icici.png")
-            ),
-            Text(
-              "profile",
-              style: _appBarTextStyle,
-            )
-          ],
-        ),
-      ),
+      leading: _profileButton,
       actions: [
         Container(
           child: Row(

@@ -1,3 +1,4 @@
+import 'package:cred/ui/animation/NotImplementedAnimation.dart';
 import 'package:flutter/material.dart';
 
 class ExtrasPage extends StatelessWidget {
@@ -5,6 +6,6 @@ class ExtrasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("benefits", style: TextStyle(color: Colors.white)));
+    return NotImplementedAnimation();
   }
 }

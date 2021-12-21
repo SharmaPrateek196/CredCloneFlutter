@@ -7,6 +7,7 @@ final String CardShadow = "#34495E";
 final String White = "#ffffff";
 final String TextBlack = "#000000";
 final String Grey = "#808080";
+final String LightGrayText = "#4c4e50";
 final String Red = "#FF0000";
 final String Maroon = "#C20000";
 final String Pink200 = "#e4ac9c";
@@ -19,8 +20,13 @@ final String LightSkyblue = "#c0e7fe";
 final String CCDarkBackground = "#52575f";
 final String CCTextGray = "#626465";
 final String CreamyYellow = "#ffb65f";
-final String Green = "#29a47f";
+final String Green = "#2dc485";
 final String PayNowButtonBlue = "#3458a1";
+final String BottomSheetBackground = "#f8f8f8";
+final String CreditScoreGrayBg = "#2b2f32";
+final String CreditScoreDarkBg = "#212325";
+final String LightWhite = "#adaeaf";
+final String RefreshTextGray = "#7e8081";
 
 final pinkRadialGradientCenterBottomRight = RadialGradient(
   center: Alignment.bottomRight,

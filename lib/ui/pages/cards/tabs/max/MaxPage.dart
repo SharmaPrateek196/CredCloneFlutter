@@ -1,3 +1,4 @@
+import 'package:cred/ui/animation/NotImplementedAnimation.dart';
 import 'package:flutter/material.dart';
 
 class MaxPage extends StatelessWidget {
@@ -5,6 +6,6 @@ class MaxPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("max", style: TextStyle(color: Colors.white)));
+    return NotImplementedAnimation();
   }
 }

@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'CRED',
       debugShowCheckedModeBanner: false,
+      initialBinding: DashBoardBinding(),
       theme: ThemeData(
         primarySwatch: darkMaterialBlack,
       ),
@@ -69,6 +70,8 @@ class MyApp extends StatelessWidget {
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key key}) : super(key: key);
 
+  final double _bottomBarHeight = 80;
+
   @override
   Widget build(BuildContext context) {
     final dashboardController = Get.find<DashboardController>();
@@ -80,10 +83,35 @@ class DashboardPage extends StatelessWidget {
     final _bottomTabScreensList = [
       HomePage(),
       CardsPage(),
-      CentralPage(),
+      Container(),
       MoneyPage(),
       ClubPage()
     ];
+
+    void _showBottomSheet() { showModalBottomSheet<dynamic>(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: HexColor.fromHex(BottomSheetBackground),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+        builder: (BuildContext context) {
+        return CentralPage();
+        });
+    }
+
+    Widget _getBottomBarRow() {
+      return Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          IconButton(icon: Image.asset("assets/images/icon_options.png",), onPressed: () { _onBottomTabPressed(0); }),
+          IconButton(icon: Image.asset("assets/images/icon_cc.png"), onPressed: () { _onBottomTabPressed(1); }),
+          IconButton(icon: Image.asset("assets/images/icon_cred_golden.png"), onPressed: () { _showBottomSheet(); }),
+          IconButton(icon: Image.asset("assets/images/bank_colored.png"), onPressed: () { _onBottomTabPressed(3); }),
+          IconButton(icon: Image.asset("assets/images/icon_club.png"), onPressed: () { _onBottomTabPressed(4); }),
+        ],
+      );
+    }
 
     return Obx(() => Scaffold(
       backgroundColor: HexColor.fromHex(DarkBackground),
@@ -97,52 +125,17 @@ class DashboardPage extends StatelessWidget {
           clipper: BottomBarClipper(),
           child: Stack(
             children: [
-              Container(
-                height: 90,
-                decoration: BoxDecoration(
-                  color: HexColor.fromHex(ExtraDarkBackground),
-                ),
-              ),
               CustomPaint(
                 painter: BottomBarBorderPainter(),
                 child: Container(
-                  height: 90,
+                  height: _bottomBarHeight,
                 ),
               ),
               Positioned.fill(
-                child: Align(
-                  //padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      RadiantGradientMask(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 12.0),
-                          child: IconButton(icon: Icon(Icons.home, size: 35, color: Colors.white,), onPressed: () { _onBottomTabPressed(0); }),
-                        ),
-                        gradient: pinkRadialGradientCenterBottomRight,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () { _onBottomTabPressed(1); }),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 38.0, right: 46.0),
-                        child: IconButton(icon: Icon(Icons.circle, size: 80,), onPressed: () { _onBottomTabPressed(2); }),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () { _onBottomTabPressed(3); }),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: IconButton(icon: Icon(Icons.home, size: 35,), onPressed: () { _onBottomTabPressed(4); }),
-                      ),
-                    ],
-                  ),
+                top: 28,
+                child: Container(
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: _getBottomBarRow()
                 ),
               ),
             ],

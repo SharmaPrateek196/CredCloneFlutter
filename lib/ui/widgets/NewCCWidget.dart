@@ -75,16 +75,18 @@ class _NewCCWidgetState extends State<NewCCWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "HDFC PLATINUM",
+          widget.ccModel.bankName,
           style: TextStyle(
             fontSize: 18,
             color: Colors.white,
-            fontWeight: FontWeight.normal,
+            letterSpacing: 1,
+            fontWeight: FontWeight.w500,
           ),
         ),
         SizedBox(
-          child: Image.asset("assets/images/hdfc_logo.png"),
-          height: 20,
+          child: Image.asset(widget.ccModel.bankPath, width: 100, alignment: Alignment.centerRight,),
+          height: 30,
+          width: 120,
         ),
       ],
     );
@@ -93,33 +95,41 @@ class _NewCCWidgetState extends State<NewCCWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.ccModel.cardNumber,
-              style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  letterSpacing: 1.5
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.ccModel.cardNumber,
+                maxLines: 1,
+                textAlign: TextAlign.start,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontFamily: 'FiraMono',
+                    fontWeight: FontWeight.normal,
+                    letterSpacing: 1.5
+                ),
               ),
-            ),
-            SizedBox(height: 10,),
-            Text(
-              widget.ccModel.cardHolder,
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.normal,
-                  letterSpacing: 0.5
+              SizedBox(height: 10,),
+              Text(
+                widget.ccModel.cardHolder,
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.white,
+                    fontFamily: 'FiraMono',
+                    fontWeight: FontWeight.normal,
+                    letterSpacing: 0.5
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         SizedBox(
-          child: Image.asset("assets/images/visa_logo.png"),
-          height: 18,
+          child: Image.asset(widget.ccModel.ccProviderPath),
+          height: 28,
+          width: 34,
         )
       ],
     );
@@ -202,9 +212,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     child: Text(
                       "Manage",
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 15,
                           color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Lato',
                           letterSpacing: 1,
                           wordSpacing: 1.5
                       ),
@@ -221,6 +232,7 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                       shape: NeumorphicShape.convex,
                       depth: 13,
                       intensity: 0.45,
+                      surfaceIntensity: 0.2,
                       lightSource: LightSource.topLeft,
                       boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(40)),
                       border: NeumorphicBorder(color: HexColor.fromHex(ExtraDarkBackground), width: 4.5)
@@ -230,9 +242,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
                     child: Text(
                       _isPaid ? "Paid" : "Pay Now",
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 15,
                           color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Lato',
                           letterSpacing: 1,
                           wordSpacing: 1.5
                       ),
@@ -255,6 +268,10 @@ class _NewCCWidgetState extends State<NewCCWidget> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(12)
+            ),
+            image: DecorationImage(
+              image: Image.asset(widget.ccModel.bgPath).image,
+              fit: BoxFit.fill
             ),
             color: HexColor.fromHex(CCDarkBackground)
           ),
