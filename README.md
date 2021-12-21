@@ -1,6 +1,15 @@
-# cred
+# CRED Clone in Flutter
 
-A new Flutter project.
+This is a clone of CRED application. Build using Flutter and Dart.
+
+### Used -
+- GetX for dependency injection
+- GetX for State Management
+- flutter_neumorphic for Neumorphic ui designs
+- Tried to replicate the Clean Code Architecture
+- Used local data store but tried to give some delay to mimic the network call
+- Custom Path creation
+- Animations
 
 ## Getting Started
 
