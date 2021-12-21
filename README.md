@@ -13,7 +13,7 @@ This is a clone of CRED application. Build using Flutter and Dart.
 
 ### Master branch has the latest code
 
-## Getting Started
+### Screenshots
 
 ![Screenshot](assets/images/ss_1.jpeg) [Screenshot](assets/images/ss_2.jpeg) ![Screenshot](assets/images/ss_3.jpeg) 
 ![Screenshot](assets/images/ss_4.jpeg) ![Screenshot](assets/images/ss_5.jpeg) ![Screenshot](assets/images/ss_6.jpeg) 
