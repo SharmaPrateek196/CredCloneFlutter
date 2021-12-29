@@ -11,9 +11,12 @@ This is a clone of CRED application. Build using Flutter and Dart.
 - Custom Path creation
 - Animations
 
-### Master branch has the latest code
+### Video sample -
+https://www.linkedin.com/posts/sharmaprateek196_cred-cred-flutterdeveloper-activity-6878915968916172800-FwNW
 
-### Screenshots
+### Screenshots -
 
 <img src="assets/images/ss_1.jpeg" width=240 />  |  <img src="assets/images/ss_2.jpeg" width=240 />  | <img src="assets/images/ss_3.jpeg" width=240 />  | <img src="assets/images/ss_4.jpeg" width=240 />  |
 <img src="assets/images/ss_5.jpeg" width=240 />  |  <img src="assets/images/ss_6.jpeg" width=240 />  |  <img src="assets/images/ss_7.jpeg" width=240 />  | <img src="assets/images/ss_8.jpeg" width=240 />  |
+
+### Master branch has the latest code
